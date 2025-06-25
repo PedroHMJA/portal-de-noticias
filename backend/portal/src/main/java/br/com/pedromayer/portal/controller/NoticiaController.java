@@ -32,7 +32,6 @@ public class NoticiaController extends GenericController<Noticia, Integer> {
 
     @RequestMapping(value = "findTopByCategoriaIdOrderByDataPublicacaoDesc/{id_categoria}", method = RequestMethod.GET)
     public ResponseEntity<Noticia> findOneByUltimaNoticiaByCategoria(@PathVariable(value = "id_categoria") Integer id_categoria) {
-        Categoria categoria = categoriaRepository.findById(id_categoria).get();
         return ResponseEntity.ok((Noticia) noticiaRepository.findTopByCategoriaIdOrderByDataPublicacaoDesc(id_categoria));
     }
 
